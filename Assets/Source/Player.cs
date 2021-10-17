@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float xSpeed;
+    public float maxSpeed;
+    public float fliction;
     private Rigidbody2D rb;
     private int direction;
     // Start is called before the first frame update
@@ -17,12 +19,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         if(direction == 1){
-            xSpeed -= 1.0f;
+            xSpeed -= fliction;
             if(xSpeed < 0){
                 xSpeed = 0.0f;
             }
         }else if(direction == 2){
-            xSpeed += 1.0f;
+            xSpeed += fliction;
             if(xSpeed > 0){
                 xSpeed = 0.0f;
             }
@@ -32,7 +34,9 @@ public class Player : MonoBehaviour
     }
 
     public void Move(float moveSpeed){
-        xSpeed = moveSpeed;
+        xSpeed += moveSpeed;
+        if(xSpeed > maxSpeed){ xSpeed = maxSpeed; }
+        if(xSpeed < -maxSpeed){ xSpeed = -maxSpeed; }
         if(moveSpeed > 0){
             // 右方向
             direction = 1;
