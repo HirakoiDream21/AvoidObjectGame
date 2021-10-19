@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LeftButton
   - RightButton
+  - Object
   layers:
   - Default
   - TransparentFX

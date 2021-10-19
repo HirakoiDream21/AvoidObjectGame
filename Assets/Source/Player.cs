@@ -45,5 +45,10 @@ public class Player : MonoBehaviour
             direction = 2;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        Debug.Log(collision.tag+"が接触しました");
+    }
+    
     
 }
