@@ -20,6 +20,16 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         Debug.Log(collision.tag+"が接触しました");
+
+        // transformを取得
+        Transform myTransform = this.transform;
+ 
+        // 座標を取得
+        Vector3 pos = myTransform.position;
+        pos.x = Random.Range (1.0f, 60.0f) - 30;
+        pos.y = 50;
+        myTransform.position = pos;  // 座標を設定
+
     }
     
     
