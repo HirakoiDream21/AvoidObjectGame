@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
-        Debug.Log(collision.tag+"が接触しました");
+        Debug.Log("Enemyに"+collision.tag+"が接触しました");
+
+        if (collision.tag == "Player") {
+            SceneManager.LoadScene("GameOver");
+        }
 
         // transformを取得
         Transform myTransform = this.transform;
